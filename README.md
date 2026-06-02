@@ -25,7 +25,7 @@ Você pode personalizar de três formas: temas Prontos, CSS Customizado e estrut
 
 
 ---
-## 💸 Engenharia de Custos: O Poder do Serverless
+## 💸  Custo-Beneficio do Serverless
 
 Embora um banco de dados relacional não fosse estritamente obrigatório para o app, a escolha do **Azure SQL Serverless** foi feita para simular um ambiente de produção real com custo praticamente zero para o desenvolvedor:
 
@@ -89,7 +89,7 @@ No Azure, se atingir o limite de dados para o serviço automaticamente e só rei
 * **Alternância Dinâmica de Vozes (Code-Switching):** O sistema quebra a resposta da IA e alterna o motor de voz em tempo real (ex: usando a voz `FranciscaNeural` para explicações em português e mudando instantaneamente para a voz `JennyNeural` ao pronunciar termos nativos em inglês).
 * **Normalização de Dados via Regex:** Filtros avançados com Expressões Regulares (`re.sub`) limpam caracteres Markdown (asteriscos, hashtags) enviados pela IA, impedindo ruídos ou leituras literais indesejadas pelo sintetizador de voz.
 * **Dual-Text Pipeline:** Separação estrita entre o texto fonético adaptado enviado ao motor de voz e o texto limpo com grafia correta enviado para a tela do usuário e salvo no banco de dados.
-
+* Pode alterar **os prompts do Gemini** para gerar outro tipo de respostas ou ciar outro tipode função.
 ---
 
 ## 🚀 Como Reproduzir este Laboratório
