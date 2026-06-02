@@ -18,7 +18,13 @@ O projeto foi desenhado focando em modularidade, alta qualidade de áudio e **ef
 * **Camada de Persistência:** **Azure SQL Database** configurado em nível de computação **Serverless**, garantindo persistência relacional de nível corporativo.
 
 ---
+O **Gradio** é uma biblioteca do Python que cria interfaces gráficas interativas e **páginas web** para modelos de inteligência artificial em poucos minutos.
+Ele gera automaticamente componentes de entrada e saída (como gravadores de áudio e caixas de texto) e fornece links públicos para testar o app em qualquer dispositivo.
+Você pode personalizar de três formas: temas Prontos, CSS Customizado e estrutura de Blocos (Blocks). 
 
+
+
+---
 ## 💸 Engenharia de Custos: O Poder do Serverless
 
 Embora um banco de dados relacional não fosse estritamente obrigatório para o app, a escolha do **Azure SQL Serverless** foi feita para simular um ambiente de produção real com custo praticamente zero para o desenvolvedor:
@@ -126,7 +132,7 @@ python3 app.py
 O Gradio disponibilizará um endereço de acesso local (`http://127.0.0.1:7860`) e gerará um link público temporário seguro para você testar o Voice Tutor a partir de qualquer dispositivo móvel.
 
 
-Lembrese de sempre excluir todos os serviços no Azure e API Gemini para evitar cobranças após  fim dos testes.
+Lembre-se de sempre excluir todos os serviços no Azure e API Gemini para evitar cobranças após  fim dos testes.
 Tudo Isso já foi excluido.
 ---
 
