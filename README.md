@@ -32,7 +32,49 @@ Embora um banco de dados relacional não fosse estritamente obrigatório para o 
 1. **Computação sob Demanda:** A cobrança por processamento (vCores) ocorre apenas nos segundos exatos em que a aplicação realiza operações de escrita (`INSERT`) ou leitura (`SELECT`).
 2. **Recurso de Pausa Automática (Auto-Pause):** O banco de dados foi configurado com uma regra de inatividade de 1 hora. Quando o Voice Tutor não está sendo usado, a Azure suspende a computação automaticamente, reduzindo o custo de processamento para **zero** e cobrando apenas centavos pelo armazenamento físico dos dados. 
 
-3.Custos
+Aqui está um mini explicativo direto e visual de como os dados saem do seu arquivo **app.py** e chegam ao **Azure SQL**, ideal para fixar o conceito ou usar como resumo.
+
+---
+
+## `app.py` ➔ Azure SQL
+
+Quando você fala no microfone, o dado faz exatamente este caminho:
+
+```
+[ Usuário Fala ] ➔ [ Gradio ] ➔ [ Gemini AI ] ➔ [ app.py (Variaveis) ]
+                                                        │
+                                                        ▼
+[ Azure SQL (Nuvem) ] ◀─── [ Driver ODBC 18 ] ◀─── [ pyodbc ]
+
+```
+
+### 1. A Captura e a Ponte (`pyodbc`)
+
+Dentro do `app.py`, as variáveis `texto_usuario` e `resposta_ia` guardam os textos puros da conversa. Quando a função `salvar_interacao` é chamada, a biblioteca **pyodbc** entra e funciona como um tradutor que pega essas variáveis do Python e as prepara para o formato do banco de dados.
+
+### 2. A Estrada (`Driver ODBC 18` + `Firewall`)
+
+O **Driver ODBC 18** (que instalei no no pc Linux) abre um caminho de comunicação criptografado e seguro com a internet. Esse caminho leva até os servidores da Microsoft Azure, cruza a barreira do **Firewall** (onde meu IP local foi previamente autorizado) e bate na porta `1433` do seu servidor lógico.
+
+### 3. A Persistência (`INSERT`)
+
+O comando SQL é disparado:
+
+```sql
+INSERT INTO HistoricoConversas (texto_usuario, resposta_ia) VALUES (?, ?)
+
+```
+
+O Azure SQL recebe a instrução, processa na camada **Serverless** (ligando os motores de vCore se o banco estava pausado), grava os textos definitivamente nos discos rígidos da nuvem e devolve um sinal de sucesso para o terminal do seu Linux.
+
+---
+
+
+* **Dados Eternos:** Mesmo se você desligar o computador ou resetar o Linux, o seu progresso de estudos está salvo em um datacenter seguro da Microsoft.
+* **Economia Dinâmica:** O `app.py` faz a gravação em milissegundos e o banco já se prepara para pausar de novo, garantindo que você tenha um ecossistema profissional gastando quase nada.
+
+
+3.**Custos**
 
 Criei regras de uso para manter o consumo da API Gemini dentro dolimite  gratuito.
 
