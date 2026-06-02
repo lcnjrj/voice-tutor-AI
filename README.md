@@ -98,7 +98,9 @@ Execução via terminal:
 sqlcmd -S seu-servidor.database.windows.net -d sua-base-de-dados -U seu_usuario -P sua_senha -Q "CREATE TABLE HistoricoConversas (id INT IDENTITY(1,1) PRIMARY KEY, data_interacao DATETIME DEFAULT GETDATE(), texto_usuario NVARCHAR(MAX) NOT NULL, resposta_ia NVARCHAR(MAX) NOT NULL);"
 
 ```
-
+O **sqlcmd** é um utilitário de linha de comando que permite executar consultas, scripts e comandos T-SQL diretamente pelo terminal. 
+O **import pyodbc** importa a biblioteca do Python utilizada para conectar a aplicação a bancos de dados por meio de drivers ODBC. Ele serve como a ponte que permite ao script enviar comandos, inserir dados e consultar tabelas diretamente no Azure SQL.
+```
 > ⚠️ **Nota de Segurança de Rede:** Lembre-se de acessar o Portal do Azure e incluir o endereço IPv4 público da sua máquina local nas regras de Firewall do servidor lógico SQL para evitar erros de *Network Connection Timeout*.
 
 ### 4. Variáveis de Ambiente
