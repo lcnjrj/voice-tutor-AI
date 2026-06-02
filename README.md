@@ -119,6 +119,8 @@ python3 app.py
 
 ```
 
+Lembrese de sempre excluir todos os serviços no Azure e API Gemini para evitarcobrançasapóso fim dos testes.
+
 O Gradio disponibilizará um endereço de acesso local (`http://127.0.0.1:7860`) e gerará um link público temporário seguro para você testar o Voice Tutor a partir de qualquer dispositivo móvel.
 
 ---
