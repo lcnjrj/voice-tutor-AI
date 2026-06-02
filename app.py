@@ -20,8 +20,8 @@ client = genai.Client(api_key=CHAVE_API)
 # === INÍCIO DO BLOCO: BANCO DE DADOS (AZURE SQL) ===
 server = 'diolab-sql-servidor.database.windows.net'
 database = 'SQL-diolab-test'
-username = 'CloudSA7e3bcbbc'
-password = 'Senhaautomatica.'
+username = 'Procure seu username tipo CloudSA3e4bcbbc'
+password = 'SenhaCriada.'
 driver = '{ODBC Driver 18 for SQL Server}'
 conn_str = f'DRIVER={driver};SERVER={server};PORT=1433;DATABASE={database};UID={username};PWD={password}'
 
